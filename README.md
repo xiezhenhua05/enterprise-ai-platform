@@ -16,7 +16,7 @@ Production-grade AI Platform built from scratch.
 
 ## Architecture
 
-(放 architecture-v1.png)
+architecture-v1.png
 
 ## Tech Stack
 
