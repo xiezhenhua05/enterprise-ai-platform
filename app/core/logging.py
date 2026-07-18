@@ -1,6 +1,8 @@
 import json, logging, sys
 from contextvars import ContextVar
+
 trace_id_var: ContextVar[str] = ContextVar("trace_id", default="-")
+
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         payload = {

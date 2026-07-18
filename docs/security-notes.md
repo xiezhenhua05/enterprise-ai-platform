@@ -1,0 +1,1 @@
+RAG ingestion is audit-logged. TODO(W3): PII masking before embedding, per-tenant collection isolation, encryption at rest.
