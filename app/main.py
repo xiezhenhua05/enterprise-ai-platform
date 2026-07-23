@@ -3,11 +3,12 @@ from fastapi import FastAPI, Request, Response
 from app.core.config import get_settings
 from app.core.logging import setup_logging, trace_id_var
 from app.observability.metrics import REQUEST_COUNT, REQUEST_LATENCY, metrics_payload
-from app.api import health
+from app.api import health, rag_router
 
 settings = get_settings()
 setup_logging(settings.log_level)
 app = FastAPI(title=settings.app_name)
+app.include_router(rag_router.router)
 
 @app.middleware("http")
 async def observability_mw(request: Request, call_next):

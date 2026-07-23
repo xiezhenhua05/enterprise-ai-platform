@@ -30,7 +30,7 @@ class MilvusVectorStore:
             field_name="embedding",
             index_params={
                 "index_type": "HNSW",
-                "metric_type": "IP",   # 归一化后 IP=cosine
+                "metric_type": "IP",   # After normalization, IP=cosine
                 "params": {"M": 16, "efConstruction": 200},
             },
         )
@@ -38,7 +38,7 @@ class MilvusVectorStore:
         return coll
 
     def insert(self, texts: list[str], embeddings: list[list[float]], sources: list[str]) -> int:
-        # 字段顺序对应非auto_id字段: text, source, embedding
+        # Field order corresponds to the non-auto_id fields: text, source, embedding.
         self.collection.insert([texts, sources, embeddings])
         self.collection.flush()
         return len(texts)
