@@ -40,4 +40,5 @@ dist/
 build/
 
 # Local database
-*.sqlite3
+*.sqlite3# 学习资料只留在本地，不推到公开的 GitHub
+.study/
